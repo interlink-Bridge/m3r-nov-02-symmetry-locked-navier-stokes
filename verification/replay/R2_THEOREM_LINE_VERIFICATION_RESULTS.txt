@@ -1,0 +1,16 @@
+PASS A03 exact_initial_equivariance_Qx_Qy_Qz_Pyz
+PASS A02 divergence_free
+A05 invariant_divfree_J_solution = {(-2*j8, 0, 0, 0, j8, 0, 0, 0, j8)}
+PASS A05 gradient_shape_forcing
+A07 invariant_symmetric_R_solution = {(r11, r33, r33, 0, 0, 0)}
+PASS A07 covariance_shape_forcing
+PASS A21 pressure_hessian_and_raw_strain_derivative
+PASS A12 initial_all_q_heat_algebra
+PASS A08 positivity_factors_for_A>0_q_in_(0,1)
+PASS A13 matched_derivative_direct_from_field
+PASS A15 exact_Sturm_variations 5 4 count= 1
+PASS A16 exact_root_bracket 0.6365105678417349094100000 0.6365105678417349094200000
+PASS A16 exact_Rstar_min_enclosure 5.78812722135752519109224751394 5.78812722135752519155412626161
+PASS A18_A19 fixed_scale_direct_threshold_monotonicity_limits
+PASS A17 equality_case_logic_and_v0_3_text_patch
+ALL R2 THEOREM-LINE ALGEBRAIC CHECKS PASS

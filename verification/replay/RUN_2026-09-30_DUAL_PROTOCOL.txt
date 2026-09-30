@@ -1,0 +1,20 @@
+PASS divergence_free
+PASS pressure_poisson
+PASS pressure_hessian_origin Matrix([[-8*A**2/3, 0, 0], [0, -5*A**2/3, 0], [0, 0, -5*A**2/3]])
+PASS raw_strain_derivative adot = 2*A*(A - 3*nu)/3
+PASS heat_covariance d = -A**2*(q - 1)*(q + 1)*(q**2 + 4*q + 1)/4
+PASS heat_covariance K = -A**2*(q - 1)*(q + 1)*(q**2 + q + 1)/2
+PASS matched bdot = 2*A**2*q**3/3
+PASS matched ddot = -A**2*(A*q**7 + 3*A*q**5 - 3*A*q**3 - A*q + 3*nu*q**4 + 6*nu*q**3 + 6*nu*q + 3*nu)/3
+PASS matched Pidot = -A**3*q*(2*A*q**7 + A*q**6 + 10*A*q**5 - 10*A*q**3 - A*q**2 - 2*A*q + 6*nu*q**4 + 12*nu*q**3 + 12*nu*q + 6*nu)/3
+PASS matched_threshold_derivative_polynomial = 3*q**10 + 9*q**9 + 8*q**8 + 32*q**7 + 17*q**6 + 44*q**5 + 29*q**4 - 16*q**3 - 16*q**2 - q - 1
+PASS matched_root_count_(0,1) = 1
+q_star = 0.63651056784173490942
+R_star_min = 5.7881272213575251913
+PASS fixed_scale bdot = 2*A*q*(A*q**2 - 3*nu)/3
+PASS fixed_scale ddot = -A**2*(q - 1)*(q + 1)*(A*q**5 + 4*A*q**3 + A*q - 3*nu*q**2 - 12*nu*q - 3*nu)/3
+PASS fixed_scale Pidot = -A**3*q*(q - 1)*(q + 1)*(2*A*q**5 + A*q**4 + 12*A*q**3 + A*q**2 + 2*A*q - 9*nu*q**2 - 36*nu*q - 9*nu)/3
+PASS fixed_scale Rhat = 9*(q**2 + 4*q + 1)/(q*(2*q**4 + q**3 + 12*q**2 + q + 2))
+PASS fixed_scale Rhat_derivative = -18*(3*q**6 + 17*q**5 + 17*q**4 + 50*q**3 + 19*q**2 + q + 1)/(q**2*(2*q**4 + q**3 + 12*q**2 + q + 2)**2)
+PASS fixed_scale limits = +infinity, 3
+ALL MATCHED AND FIXED-SCALE SYMBOLIC CHECKS PASS

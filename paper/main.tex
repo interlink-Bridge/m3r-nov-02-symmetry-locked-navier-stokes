@@ -1,0 +1,315 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\StatusBox}[1]{\fbox{\parbox{0.94\linewidth}{#1}}}
+
+\title{\textbf{An Exact Symmetry-Locked Physical-Time Counterconstruction\\
+ to First-Order Angular Turnover with Matched-Path and Fixed-Scale\\
+ Transfer-Threshold Classifications}\\[0.8em]
+\large M3R-NOV-02 --- Public Technical Note v1.0}
+\author{Alexanja Senke\\Independent Researcher --- Interlink Bridge}
+\date{30 September 2026}
+
+\begin{document}
+\maketitle
+\StatusBox{\textbf{Status: PUBLIC TECHNICAL NOTE v1.0 / INDEPENDENT VERIFICATION INVITED.} DOI: \href{https://doi.org/10.5281/zenodo.23063122}{10.5281/zenodo.23063122}. This public release is based on the restricted v0.3 review state dated 13 August 2026. It is not peer reviewed, not formally proof-assistant verified, and independent line-by-line certification of the complete manuscript is not claimed. No global Navier--Stokes regularity theorem, finite-time singularity construction, Millennium Prize solution, or universal Reynolds-number threshold is claimed. Worldwide novelty and priority over unidentified prior art are not claimed.}
+
+\begin{abstract}
+For an explicit smooth periodic divergence-free initial family for the three-dimensional incompressible Navier--Stokes equations, we isolate a symmetry point at which the resolved heat-filtered strain and the deviatoric caloric covariance are forced into opposite traceless diagonal shapes. For each fixed positive heat parameter, favorable normalized stress--strain alignment therefore remains exactly saturated, $\chi=1$, on a nonzero heat-parameter-dependent physical-time interval. Independently of Navier--Stokes, a kinematic lemma gives $\dot\chi=0$ at every differentiable saturated state, excluding a universal first-order angular-depletion law at saturation. We then distinguish two observation protocols. Along the calorically matched path $\tau(t)=T-t$, exact finite Fourier algebra yields a family-specific transfer threshold $\mathcal R_*(q)$ with a unique interior minimum $5.788127221357525\ldots$, certified by an exact Sturm root count. At fixed heat scale, an independent exact control gives a different threshold $\widehat{\mathcal R}(q)$, strictly decreasing from $+\infty$ to $3$. Consequently, the interval $3<A/\nu<5.788127\ldots$ is a matched-path strain/transfer separation regime and is not a fixed-scale all-heat-scale separation regime. The result narrows geometry-only turnover claims inside the declared family but does not decide long-time persistence or global regularity.
+\end{abstract}
+
+\section{Claim boundary and scope}
+This note is self-contained and isolates a local-in-physical-time result for one explicit smooth periodic divergence-free Navier--Stokes family. Its central distinction is between two explicitly declared observation protocols: a moving calorically matched path and physical-time differentiation at fixed positive heat scale.
+
+The Gaussian/heat stress framework, filtered-stress identities, realizability, stress--strain geometry, temporal stress/strain alignment studies, and time-dependent-filter commutation effects are established neighboring literature and are not claimed here. The theorem-facing object is the explicit symmetry-locked Navier--Stokes family together with the exact family-specific classifications below.
+
+\section{Explicit symmetry-locked family}
+Let $A>0$ and $\nu>0$, and define on $\T^3=(\R/2\pi\mathbb Z)^3$
+\begin{equation}
+ u_A(x,y,z,0)=A\bigl(-\sin x(\cos y+\cos z),\;\cos x\sin y,\;\cos x\sin z\bigr).
+ \label{eq:uA}
+\end{equation}
+A direct calculation gives $\nabla\cdot u_A=0$. The field is invariant under coordinate reflections together with the exchange $y\leftrightarrow z$ and $u_2\leftrightarrow u_3$. Standard local well-posedness for the periodic Navier--Stokes problem in $H^1$ with normalized pressure gives a unique short-time periodic solution; see Tao, Theorem~5.1 in Ref.~9. For the present homogeneous smooth trigonometric data, the pressure normalization is harmless up to an additive constant. Applying any of the stated orthogonal torus symmetries to a solution produces another solution with the same initial data, so uniqueness preserves the symmetries. At the origin they force
+\begin{equation}
+ \nabla u(0,t)=a(t)\,\mathrm{diag}(-2,1,1).
+ \label{eq:gradshape}
+\end{equation}
+
+For a heat observation with parameter $\tau>0$,
+\begin{equation}
+ U_\tau(t)=H_\tau u(t),\qquad H_\tau=e^{\nu\tau\Delta},
+\end{equation}
+the heat semigroup preserves the same symmetries, and hence
+\begin{equation}
+ S(U_\tau)(0,t)=b_\tau(t)\,\mathrm{diag}(-2,1,1).
+ \label{eq:Sshape}
+\end{equation}
+Define the exact caloric covariance
+\begin{equation}
+ R_\tau=H_\tau(u\otimes u)-U_\tau\otimes U_\tau,
+ \qquad R_\tau^0=R_\tau-\frac13\tr(R_\tau)I.
+\end{equation}
+At the origin the same symmetries force
+\begin{equation}
+ R_\tau^0(0,t)=\frac{d_\tau(t)}3\,\mathrm{diag}(2,-1,-1).
+ \label{eq:Rshape}
+\end{equation}
+Therefore, whenever $b_\tau(t)d_\tau(t)>0$,
+\begin{equation}
+ \chi_\tau(0,t):=\frac{-R_\tau^0:S(U_\tau)}{|R_\tau^0|_F|S(U_\tau)|_F}=1,
+ \qquad \Pi_\tau(0,t):=-R_\tau^0:S(U_\tau)=2b_\tau(t)d_\tau(t)>0.
+ \label{eq:chiPi}
+\end{equation}
+At $t=0$ the two amplitudes are positive for every fixed $\tau>0$. Hence, for every fixed $\tau>0$, continuity gives an $\varepsilon_\tau>0$ such that
+\begin{equation}
+ \chi_\tau(0,t)=1\qquad (0\le t<\varepsilon_\tau).
+ \label{eq:quantifier}
+\end{equation}
+No heat-scale-uniform lower bound $\inf_{\tau>0}\varepsilon_\tau>0$ is claimed.
+
+\paragraph{Consequence.}
+Physical Navier--Stokes time does not, by itself, force an immediate angular departure from perfect favorable alignment in this symmetry class at a fixed positive heat scale.
+
+\section{Kinematic saturation lemma}
+Let
+\[
+ n=\frac{R^0}{|R^0|_F},\qquad m=\frac{S}{|S|_F},\qquad \chi=-n:m.
+\]
+Assume first that $n$ and $m$ are $C^1$ in time. At a saturated state with $\chi=1$, one has $n=-m$. Since $n_t\perp n$ and $m_t\perp m$ for unit-norm tensors,
+\begin{equation}
+ \dot\chi=0.
+ \label{eq:chidot}
+\end{equation}
+Equivalently, $1-\chi=\tfrac12|n+m|_F^2$. If, in addition, $n$ and $m$ are $C^2$ in time, then at saturation the term containing $n+m$ vanishes and
+\begin{equation}
+ \frac{\dd^2}{\dd t^2}(1-\chi)=|\dot n+\dot m|_F^2\ge0.
+\end{equation}
+Thus a universal \emph{first-order} angular-depletion law is kinematically impossible at the saturated point. The $C^1$ conclusion \eqref{eq:chidot} is the theorem-facing part; the $C^2$ identity is a higher-order supporting observation. This elementary kinematic lemma is supporting structure, not a standalone novelty claim.
+
+\section{Initial heat-scale algebra}
+Put
+\begin{equation}
+ q=e^{-2\nu\tau}\in(0,1).
+\end{equation}
+At $t=0$ and the symmetry point, exact finite Fourier algebra yields
+\begin{align}
+ b&=Aq,\\
+ d&=\frac{A^2}{4}(1-q^2)(q^2+4q+1),\\
+ K&=\frac12\tr R=\frac{A^2}{2}(1-q^2)(q^2+q+1),\\
+ \Pi&=2bd=\frac{A^3q}{2}(1-q^2)(q^2+4q+1)>0.
+ \label{eq:basicq}
+\end{align}
+These identities are common initial data for the two derivative protocols below.
+
+\section{Protocol I: calorically matched path}
+Now let the heat parameter move with physical time,
+\begin{equation}
+ \tau(t)=T-t>0,
+ \qquad U(t)=H_{\tau(t)}u(t),
+\end{equation}
+so that $\dot\tau=-1$. Along this explicitly declared observation path, exact differentiation gives
+\begin{align}
+ \dot b_{\rm m}&=\frac23 A^2q^3,\\
+ \dot d_{\rm m}&=\frac{A^3}{3}q(1-q^2)(q^4+4q^2+1)
+ -\nu A^2(q^4+2q^3+2q+1),
+\end{align}
+and therefore
+\begin{equation}
+ \dot\Pi_{\rm m}=\frac{A^3q}{3}\left[
+ Aq(1-q^2)(2q^4+q^3+12q^2+q+2)
+ -6\nu(q^4+2q^3+2q+1)
+ \right].
+ \label{eq:PidotMatched}
+\end{equation}
+Hence
+\begin{equation}
+ \dot\Pi_{\rm m}>0
+ \quad\Longleftrightarrow\quad
+ \frac{A}{\nu}>\mathcal R_*(q),
+\end{equation}
+where
+\begin{equation}
+ \boxed{\displaystyle
+ \mathcal R_*(q)=
+ \frac{6(q^4+2q^3+2q+1)}{q(1-q^2)(2q^4+q^3+12q^2+q+2)}.}
+ \label{eq:Rstar}
+\end{equation}
+The threshold diverges as $q\downarrow0$ and $q\uparrow1$.
+
+\subsection{Unique minimizing matched-path heat scale}
+After removal of a positive denominator, differentiation of \eqref{eq:Rstar} is controlled by
+\begin{equation}
+ P_{10}(q)=3q^{10}+9q^9+8q^8+32q^7+17q^6+44q^5+29q^4-16q^3-16q^2-q-1.
+\end{equation}
+An exact Sturm root count gives exactly one root $q_*$ in $(0,1)$. Exact rational endpoint evaluation further certifies
+\begin{equation}
+ 0.63651056784173490941<q_*<0.63651056784173490942,
+ \label{eq:qstarbracket}
+\end{equation}
+and interval evaluation of \eqref{eq:Rstar} over this bracket gives
+\begin{equation}
+ 5.78812722135752519109224751394
+ <R_{\min}:=\mathcal R_*(q_*)
+ <5.78812722135752519155412626161.
+ \label{eq:Rminbracket}
+\end{equation}
+Hence, inside this family and along the matched path, the complete classification is
+\begin{align}
+ \frac{A}{\nu}<R_{\min}
+ &\Longrightarrow \dot\Pi_{\rm m}(0,\tau)<0\quad\forall\tau>0,\\
+ \frac{A}{\nu}=R_{\min}
+ &\Longrightarrow \dot\Pi_{\rm m}(0,\tau)\le0\quad\forall\tau>0,
+ \quad\text{with equality only at }q=q_*,\\
+ \frac{A}{\nu}>R_{\min}
+ &\Longrightarrow \dot\Pi_{\rm m}(0,\tau)>0\quad\text{on a nonempty open heat-scale interval.}
+\end{align}
+This is a complete initial-turnover classification for the named family along the declared moving caloric path, not a universal Navier--Stokes criterion.
+
+\section{Protocol II: fixed heat scale --- adversarial control}
+Hold $\tau>0$ fixed while differentiating in physical time. Then
+\begin{equation}
+ \left.\partial_t\Pi\right|_\tau
+ =\dot\Pi_{\rm m}+\partial_\tau\Pi,
+ \label{eq:chainrule}
+\end{equation}
+because $\dot\Pi_{\rm m}=\left.\partial_t\Pi\right|_\tau-\partial_\tau\Pi$ along $\dot\tau=-1$. An independent symbolic replay from the original trigonometric field, without importing \eqref{eq:PidotMatched}, gives
+\begin{align}
+ \left.\partial_t b\right|_\tau
+ &=\frac{2Aq}{3}(Aq^2-3\nu),\\
+ \left.\partial_t d\right|_\tau
+ &=\frac{A^2(1-q^2)}{3}
+ \left[Aq(q^4+4q^2+1)-3\nu(q^2+4q+1)\right],
+\end{align}
+and hence
+\begin{equation}
+ \boxed{\displaystyle
+ \left.\partial_t\Pi\right|_\tau
+ =\frac{A^3q(1-q^2)}{3}
+ \left[Aq(2q^4+q^3+12q^2+q+2)-9\nu(q^2+4q+1)\right].}
+ \label{eq:PidotFixed}
+\end{equation}
+Therefore
+\begin{equation}
+ \left.\partial_t\Pi\right|_\tau>0
+ \quad\Longleftrightarrow\quad
+ \frac{A}{\nu}>\widehat{\mathcal R}(q),
+\end{equation}
+with
+\begin{equation}
+ \boxed{\displaystyle
+ \widehat{\mathcal R}(q)=
+ \frac{9(q^2+4q+1)}{q(2q^4+q^3+12q^2+q+2)}.}
+ \label{eq:Rhat}
+\end{equation}
+Its derivative is
+\begin{equation}
+ \widehat{\mathcal R}'(q)=
+ -\frac{18(3q^6+17q^5+17q^4+50q^3+19q^2+q+1)}
+ {q^2(2q^4+q^3+12q^2+q+2)^2}<0
+ \qquad(0<q<1).
+\end{equation}
+Thus
+\begin{equation}
+ \lim_{q\downarrow0}\widehat{\mathcal R}(q)=+\infty,
+ \qquad
+ \lim_{q\uparrow1}\widehat{\mathcal R}(q)=3.
+\end{equation}
+Consequently, $A/\nu\le3$ implies fixed-scale initial transfer decay at every positive heat scale, whereas every $A/\nu>3$ admits sufficiently small positive heat scales (equivalently $q$ sufficiently close to $1$) with fixed-scale initial transfer growth.
+
+\section{Strain growth and the protocol-dependent separation}
+For the unfiltered strain amplitude in \eqref{eq:gradshape}, exact pressure and Navier--Stokes algebra gives
+\begin{equation}
+ \dot a(0)=\frac23 A(A-3\nu).
+ \label{eq:adot}
+\end{equation}
+Therefore local biaxial strain initially grows whenever $A/\nu>3$. Combining \eqref{eq:adot} with the matched-path threshold gives
+\begin{equation}
+ \boxed{\displaystyle 3<\frac{A}{\nu}<R_{\min}}\qquad(R_{\min}=5.788127221357525\ldots)
+\end{equation}
+as an exact regime in which local biaxial strain grows while \emph{matched-path} favorable caloric transfer decays at every positive heat scale.
+
+This statement does \emph{not} extend to the fixed-scale derivative: by the monotone fixed-scale threshold, every $A/\nu>3$ has heat scales near $q=1$ for which $\left.\partial_t\Pi\right|_\tau>0$. The adversarial control therefore repairs the observation-protocol ambiguity rather than invalidating the matched-path theorem.
+
+\section{Local scalar reduction and the surviving obstruction}
+At the symmetry point the geometry collapses to scalar amplitudes, $\Pi=2bd$. Along any declared observation protocol, the corresponding amplitude equations can be organized as a resolved-strain amplitude equation coupled to pressure-Hessian/curvature feedback and a covariance-amplitude equation coupled to anisotropic unresolved transport/pressure/gradient forcing. The exact family therefore blocks any claim that local alignment geometry alone universally determines immediate turnover. For this route, the scalar reduction identifies amplitude/nonlocal-forcing/accumulated-budget control as the surviving obstruction, with the observation protocol stated explicitly; no claim is made that this is the unique obstruction for global Navier--Stokes regularity.
+
+\section{Independent verification}
+The package includes an independent symbolic replay written from the explicit trigonometric field rather than by importing displayed constants. It verifies:
+\begin{itemize}
+\item divergence freedom and pressure Poisson compatibility;
+\item the pressure Hessian $A^2\mathrm{diag}(-8/3,-5/3,-5/3)$ at the origin;
+\item $\dot a(0)=\tfrac23A(A-3\nu)$;
+\item the exact heat-covariance formulas for $d$ and $K$;
+\item the matched derivatives and \eqref{eq:PidotMatched};
+\item the matched threshold derivative polynomial, the exact Sturm count, and the rational brackets \eqref{eq:qstarbracket}--\eqref{eq:Rminbracket};
+\item the fixed-scale derivatives and \eqref{eq:PidotFixed} directly from the original field;
+\item strict negativity of $\widehat{\mathcal R}'$ on $(0,1)$ and the endpoint limits $+\infty$ and $3$.
+\end{itemize}
+The deterministic replay certifies the rational brackets \eqref{eq:qstarbracket}--\eqref{eq:Rminbracket}, verifies the matched equality-case logic, and terminates with \texttt{ALL R2 THEOREM-LINE ALGEBRAIC CHECKS PASS}; the original dual-protocol replay also terminates with \texttt{ALL MATCHED AND FIXED-SCALE SYMBOLIC CHECKS PASS}.
+
+\section{Prior-art separation and limitations}
+Exact filtered-stress expansions for smooth filters including Gaussian filters are established prior art. Statistical stress/strain topology, tensor alignment as a factor in interscale transfer, geometric constraints on transfer, and temporal stress/strain alignment dynamics are also established topics. Time-dependent filter widths are known to generate additional temporal filtering terms/commutation effects in LES formulations. None of these neighboring concepts is relabelled as new here.
+
+The candidate separation is narrower: one explicit smooth periodic incompressible Navier--Stokes family; symmetry-forced pointwise tensor shapes; per-fixed-heat-parameter nonzero physical-time persistence of exact favorable alignment; an exact matched-path all-heat-scale initial transfer classification with a unique interior minimizer; and a distinct exact fixed-scale control classification showing that the matched threshold cannot be read as a fixed-scale threshold.
+
+A targeted literature audit did not locate an identical published theorem combining these features. This is not an exhaustive novelty proof, and no worldwide novelty or priority claim is made. The present result is local in physical time and family-specific. It does not establish a heat-scale-uniform persistence interval, does not show persistence toward a singular time, does not construct blow-up, and does not address the global Navier--Stokes existence-and-smoothness theorem target.
+
+After the restricted v0.3 review state was frozen, OpenAI publicly released a finite-time-singularity solution writeup for the Navier--Stokes existence-and-smoothness problem together with a Lean formalization; see Ref.~10. That work is not used in the proofs below. The present note addresses a different, local coarse-grained classification problem and makes no comparative correctness or priority claim with respect to that global result.
+
+\section{Claim and verification status}
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.58\linewidth}p{0.30\linewidth}}
+\toprule
+Object & Status\\
+\midrule
+Symmetry preservation of local smooth solution & EXACT\\
+Per-fixed-$\tau$ physical-time $\chi=1$ interval & EXACT\\
+Uniform-in-$\tau$ persistence interval & NOT ESTABLISHED\\
+Kinematic $\dot\chi=0$ at saturation & EXACT / SUPPORTING\\
+All-$q$ initial heat algebra & EXACT FINITE FOURIER ALGEBRA\\
+Matched-path threshold $\mathcal R_*$ & EXACT\\
+Unique minimizer of $\mathcal R_*$ in $(0,1)$ & EXACT STURM ROOT COUNT\\
+Rational enclosure of $q_*$ and $R_{\min}$ & CERTIFIED\\
+Fixed-scale threshold $\widehat{\mathcal R}$ & EXACT CONTROL\\
+Strict monotonicity of $\widehat{\mathcal R}$ & EXACT\\
+Independent symbolic replay & PASS\\
+External line-by-line review & NOT OBTAINED\\
+Long-time recurrence/persistence & NOT ESTABLISHED\\
+Global Navier--Stokes theorem target & NOT ADDRESSED\\
+Millennium Prize theorem & NOT CLAIMED\\
+Worldwide novelty / priority & NOT CLAIMED\\
+Public release & v1.0 / 30 SEPTEMBER 2026\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{References}
+\begin{enumerate}
+\item D. Carati, G. S. Winckelmans, H. Jeanmart, ``On the modelling of the subgrid-scale and filtered-scale stress tensors in large-eddy simulation,'' \emph{J. Fluid Mech.} 441 (2001), 119--138. DOI 10.1017/S0022112001004773.
+\item B. Tao, J. Katz, C. Meneveau, ``Statistical geometry of subgrid-scale stresses determined from holographic particle image velocimetry measurements,'' \emph{J. Fluid Mech.} 457 (2002), 35--78. DOI 10.1017/S0022112001007443.
+\item J. G. Ballouz, N. T. Ouellette, ``Tensor geometry in the turbulent cascade,'' \emph{J. Fluid Mech.} 835 (2018), 1048--1064. DOI 10.1017/jfm.2017.802.
+\item J. G. Ballouz, N. T. Ouellette, ``Geometric constraints on energy transfer in the turbulent cascade,'' \emph{Phys. Rev. Fluids} 5, 034603 (2020). DOI 10.1103/PhysRevFluids.5.034603.
+\item J. G. Ballouz, P. L. Johnson, N. T. Ouellette, ``Temporal dynamics of the alignment of the turbulent stress and strain rate,'' \emph{Phys. Rev. Fluids} 5, 114606 (2020). DOI 10.1103/PhysRevFluids.5.114606.
+\item P. L. Johnson, ``Energy Transfer from Large to Small Scales in Turbulence by Multiscale Nonlinear Strain and Vorticity Interactions,'' \emph{Phys. Rev. Lett.} 124, 104501 (2020). DOI 10.1103/PhysRevLett.124.104501.
+\item S. Leonard, M. Terracol, P. Sagaut, ``Commutation error in LES with time-dependent filter width,'' \emph{Computers \& Fluids} 36 (2007), 513--519. DOI 10.1016/j.compfluid.2005.06.010.
+\item F. Tuteri, A. Alexakis, S. Chibbaro, ``Fluctuations around turbulence models,'' \emph{J. Fluid Mech.} 1027, A39 (2026). DOI 10.1017/jfm.2025.11087.
+\item T. Tao, ``Localisation and compactness properties of the Navier--Stokes global regularity problem,'' \emph{Analysis \& PDE} 6 (2013), 25--107. DOI 10.2140/apde.2013.6.25. See Theorem~5.1 for local well-posedness in periodic $H^1$.
+\item OpenAI, ``On the Navier--Stokes Millennium Prize Problem,'' 8 September 2026. \url{https://openai.com/index/navier-stokes-solution/}.
+\end{enumerate}
+
+\vfill
+\begin{center}
+\textbf{Public v1.0}\qquad\textit{Independent mathematical inspection and defect reports invited.}
+\end{center}
+\end{document}
