@@ -1,0 +1,7 @@
+Copyright © 2026 Alexanja Senke. All rights reserved.
+
+This public research release is made available for reading, scholarly citation, mathematical inspection, and defect reporting under applicable law.
+
+No patent, software, implementation, certification, conformity-assessment, trademark, or commercial-use license is granted or implied.
+
+Any rights that cannot lawfully be excluded remain unaffected.
